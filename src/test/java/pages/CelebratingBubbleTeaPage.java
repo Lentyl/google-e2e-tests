@@ -15,7 +15,8 @@ public class CelebratingBubbleTeaPage extends BasePage {
     public static By exploreRandomThemeButton = By.cssSelector(".key-themes-cta");
     public static By interactiveGameButton = By.xpath("//a[normalize-space()='interactive game']");
     public static By beverageButton = By.xpath("//a[normalize-space()='beverage']");
-    public static By doodleDate = By.cssSelector("a[class='theme-word']");
+    public static By doodleDateTitle = By.xpath("//h2[text()='Where this Doodle appeared']");
+    public static By doodleDateButton = By.xpath("//a[@class='theme-word' and text()='Jan 29, 2023']");
 
 
 

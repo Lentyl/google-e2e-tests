@@ -6,10 +6,9 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import static pages.BasePage.*;
 
-import pages.CelebratingBubbleTeaPage;
-import pages.DoodlesPage;
-import pages.HomePage;
-import pages.SearchResultPage;
+import data.TestData;
+
+import pages.*;
 import org.testng.Assert;
 
 
@@ -22,7 +21,7 @@ public class HomePageTests {
         driver = new ChromeDriver();
         driver.get("https://www.google.pl/");
         driver.manage().window().maximize();
-        click(HomePage.confirmationButton);
+        click(HomePage.acceptAllButton);
     }
 
     @Test
@@ -38,34 +37,74 @@ public class HomePageTests {
         Assert.assertEquals(getText(CelebratingBubbleTeaPage.mainTitle), "Celebrating Bubble Tea");
         click(CelebratingBubbleTeaPage.foodAndDrinkButton);
         Assert.assertEquals(driver.getCurrentUrl(), "https://doodles.google/search/?topic_tags=food%20and%20drink");
-        Assert.assertTrue(isDisplayed(getElementByXpathText( DoodlesPage.filterLabelName, "food and drink")));
+        Assert.assertEquals(getText(DoodlesPage.filterLabelName), "Food and Drink");
         driver.navigate().back();
         click(CelebratingBubbleTeaPage.exploreRandomThemeButton);
         Assert.assertTrue(isDisplayed(DoodlesPage.searchDoodlesInput));
         driver.navigate().back();
         click(CelebratingBubbleTeaPage.interactiveGameButton);
-        Assert.assertTrue(isDisplayed(getElementByXpathText( DoodlesPage.filterLabelName, "Interactive Game")));
+        Assert.assertEquals(getText(DoodlesPage.filterLabelName), "Interactive Game");
         driver.navigate().back();
         click(CelebratingBubbleTeaPage.beverageButton);
-        Assert.assertTrue(isDisplayed(getElementByXpathText( DoodlesPage.filterLabelName, "food and drink")));
+        Assert.assertEquals(getText(DoodlesPage.filterLabelName), "Food and Drink");
         driver.navigate().back();
         CelebratingBubbleTeaPage.goToReadMorePage();
         Assert.assertTrue(isDisplayed(CelebratingBubbleTeaPage.readMoreModalFirstParagraph));
         click(CelebratingBubbleTeaPage.readMorModalCloseButton);
-        click(CelebratingBubbleTeaPage.doodleDate);
-        click(DoodlesPage.dateFilter);
-        Assert.assertEquals(getText(getElementByXpathText(DoodlesPage.dateComboboxesText, "date_like_year")), "Year: 2023" );
-        Assert.assertEquals(getText(getElementByXpathText(DoodlesPage.dateComboboxesText, "date_like_month")), "January" );
-        Assert.assertEquals(getText(getElementByXpathText(DoodlesPage.dateComboboxesText, "date_like_year")), "29" );
-        click(getElementByXpathText(DoodlesPage.dateComboboxesText, "date_like_year"));
-        click(getElementByXpathText(DoodlesPage.comboboxOption, "2020"));
-        click(getElementByXpathText(DoodlesPage.comboboxOption, "December"));
-        click(getElementByXpathText(DoodlesPage.comboboxOption, "31"));
-        Assert.assertEquals(getText(getElementByXpathText(DoodlesPage.dateComboboxesText, "2020")), "Year: 2023" );
-        Assert.assertEquals(getText(getElementByXpathText(DoodlesPage.dateComboboxesText, "December")), "January" );
-        Assert.assertEquals(getText(getElementByXpathText(DoodlesPage.dateComboboxesText, "31")), "29" );
-        click(DoodlesPage.dateFilter);
-        Assert.assertEquals()
+        scrollToElement(CelebratingBubbleTeaPage.doodleDateButton);
+    }
+    @Test
+    void LogInWithIncorrectPassword (){
+        LogInPage.logIn(TestData.corretEmail, TestData.incorretPassword);
+        Assert.assertEquals(getText(LogInPage.passwordValidationMessage), "Wrong password. Try again or click Forgot password to reset it.");
+    }
+    @Test
+    void LogInWithCorrectCredentials (){
+        LogInPage.logIn(TestData.corretEmail, TestData.corretPassword);
+        Assert.assertEquals(HomePage.getAttribute(HomePage.avatarIcon, "aria-label"),"Google Account: MariuszTest  \n" +
+                "(mariusztest260@gmail.com)");
+    }
+    @Test
+    void CheckFooterLinks (){
+        click(getElementByXpathText(HomePage.footerLinks,"About"));
+        Assert.assertEquals(driver.getCurrentUrl(), "https://about.google/?utm_source=google-PL&utm_medium=referral&utm_campaign=hp-footer&fg=1");
+        driver.navigate().back();
+        click(getElementByXpathText(HomePage.footerLinks,"Advertising"));
+        click(HomePage.continueToGoogleButton);
+        Assert.assertEquals(driver.getCurrentUrl(), "https://ads.google.com/intl/en_pl/home/?subid=ww-ww-et-g-awa-a-g_hpafoot1_1!o2&utm_source=google.com&utm_medium=referral&utm_campaign=google_hpafooter&fg=1");
+        driver.navigate().back();
+        driver.navigate().back();
+        click(getElementByXpathText(HomePage.footerLinks,"Business"));
+        Assert.assertEquals(driver.getCurrentUrl(), "https://www.google.pl/services/?subid=ww-ww-et-g-awa-a-g_hpbfoot1_1!o2&utm_source=google.com&utm_medium=referral&utm_campaign=google_hpbfooter&fg=1#?modal_active=none");
+        driver.navigate().back();
+        click(getElementByXpathText(HomePage.footerLinks,"How Search works"));
+        Assert.assertEquals(driver.getCurrentUrl(), "https://www.google.com/search/howsearchworks/?fg=1");
+        driver.navigate().back();
+        click(getElementByXpathText(HomePage.footerLinks,"Privacy"));;
+        Assert.assertEquals(driver.getCurrentUrl(), "https://policies.google.com/privacy?hl=en-PL&fg=1");
+        driver.navigate().back();
+        click(getElementByXpathText(HomePage.footerLinks,"Terms"));
+        Assert.assertEquals(driver.getCurrentUrl(), "https://policies.google.com/terms?hl=en-PL&fg=1");
+        driver.navigate().back();
+        click(HomePage.settingsMenu);
+        click(getElementByXpathText(HomePage.footerLinks,"Search settings"));
+        Assert.assertEquals(driver.getCurrentUrl(), "https://www.google.pl/preferences?hl=en-PL&fg=1");
+        driver.navigate().back();
+        click(getElementByXpathText(HomePage.footerLinks,"Advanced search"));
+        Assert.assertEquals(driver.getCurrentUrl(), "https://www.google.pl/advanced_search?hl=en-PL&fg=1");
+        driver.navigate().back();
+        click(getElementByXpathText(HomePage.footerLinks,"Your data in Search"));
+        Assert.assertEquals(driver.getCurrentUrl(), "https://myaccount.google.com/intro/yourdata/search?utm_source=googlemenu&fg=1&cctld=pl");
+        driver.navigate().back();
+        click(getElementByXpathText(HomePage.footerLinks,"Search history"));
+        Assert.assertEquals(driver.getCurrentUrl(), "https://www.google.pl/history/optout?hl=en-PL&fg=1");
+        driver.navigate().back();
+        click(getElementByXpathText(HomePage.footerLinks,"Search help"));
+        Assert.assertEquals(getText(howCanWeHelpTitle), "How can we help you?");
+        driver.navigate().back();
+        click(HomePage.sendAnOpinionModalLink);
+        Assert.assertTrue(isDisplayed(HomePage.sendFeedbackToGoogleTitle));
+
     }
 
 }

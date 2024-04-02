@@ -5,15 +5,24 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.JavascriptExecutor;
 
+
 import java.time.Duration;
+import java.util.concurrent.TimeUnit;
 
 public class BasePage {
 
 
 
-    public static By confirmationButton = By.id("W0wltc");
+    public static By acceptAllButton = By.id("W0wltc");
+    public static By cookiesOKButton = By.cssSelector(".glue-cookie-notification-bar__accept");
+    public static By continueToGoogleButton = By.xpath("(//span[@class='VfPpkd-vQzf8d'][normalize-space()='Accept all'])[1]");
+    public static By howCanWeHelpTitle = By.cssSelector("h1[class='promoted-search__greeting'] div");
 
 
+    public static String getAttribute(By el, String atr) {
+        return new WebDriverWait(driver, Duration.ofSeconds(15))
+                .until(ExpectedConditions.visibilityOfElementLocated(el)).getAttribute(atr);
+    }
     public static void click(By el) {
         new WebDriverWait(driver, Duration.ofSeconds(15))
                 .until(ExpectedConditions.elementToBeClickable(el))
@@ -43,6 +52,7 @@ public class BasePage {
     public static Boolean isDisplayed(By el) {
         boolean visability = false;
         for (int i = 0; i < 20; i++) {
+            driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
             try {
                 driver.findElement(el);
                 visability = true;
