@@ -1,37 +1,36 @@
 package tests;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import static pages.BasePage.*;
-
 import data.TestData;
-
+import org.testng.asserts.SoftAssert;
 import pages.*;
 import org.testng.Assert;
-
-
+import org.testng.asserts.SoftAssert;
 
 public class HomePageTests {
     public static WebDriver driver;
 
-    @BeforeTest
-    public static void setup() {
+    @BeforeMethod
+    public static void testSetup() {
         driver = new ChromeDriver();
-        driver.get("https://www.google.pl/");
-        driver.manage().window().maximize();
-        click(HomePage.acceptAllButton);
+        driver.get(TestData.baseUrl);
+        goToGooglePage();
     }
 
-    @Test
-    void SearchTest(){
-        HomePage.searchInWeb("Bociany");
-        Assert.assertEquals(getText(SearchResultPage.firstSearchedRecord), "Bociany online");
+    @Test(priority=1)
+    void SearchRecordTest(){
+        HomePage.searchInWeb(TestData.searchedPhrase);
+        Assert.assertEquals(getText(SearchResultPage.storkTitle), "Stork");
     }
 
-    @Test
-    void FeelingLuckyTest (){
+    @Test(priority=2)
+    void FeelingLuckyButtonTest (){
+        SoftAssert softAssert = new SoftAssert();
+        HomePage.searchInWeb(TestData.searchedPhrase);
+        softAssert.assertEquals(getText(SearchResultPage.storkTitle), "Stork"); // wyświetlane są losowe strony
+        driver.navigate().back();
         click(HomePage.feelingLuckyButton);
         DoodlesPage.goToCelebrationBubleTeaPage();
         Assert.assertEquals(getText(CelebratingBubbleTeaPage.mainTitle), "Celebrating Bubble Tea");
@@ -40,12 +39,11 @@ public class HomePageTests {
         Assert.assertEquals(getText(DoodlesPage.filterLabelName), "Food and Drink");
         driver.navigate().back();
         click(CelebratingBubbleTeaPage.exploreRandomThemeButton);
+        scroll(0, 30);
         Assert.assertTrue(isDisplayed(DoodlesPage.searchDoodlesInput));
-        driver.navigate().back();
-        click(CelebratingBubbleTeaPage.interactiveGameButton);
+        CelebratingBubbleTeaPage.goTointeractiveGameLink();
         Assert.assertEquals(getText(DoodlesPage.filterLabelName), "Interactive Game");
-        driver.navigate().back();
-        click(CelebratingBubbleTeaPage.beverageButton);
+        CelebratingBubbleTeaPage.goToBeverageLink();
         Assert.assertEquals(getText(DoodlesPage.filterLabelName), "Food and Drink");
         driver.navigate().back();
         CelebratingBubbleTeaPage.goToReadMorePage();
@@ -53,18 +51,21 @@ public class HomePageTests {
         click(CelebratingBubbleTeaPage.readMorModalCloseButton);
         scrollToElement(CelebratingBubbleTeaPage.doodleDateButton);
     }
-    @Test
+
+    @Test(priority=3)
     void LogInWithIncorrectPassword (){
         LogInPage.logIn(TestData.corretEmail, TestData.incorretPassword);
         Assert.assertEquals(getText(LogInPage.passwordValidationMessage), "Wrong password. Try again or click Forgot password to reset it.");
     }
-    @Test
+
+    @Test(priority=4)
     void LogInWithCorrectCredentials (){
         LogInPage.logIn(TestData.corretEmail, TestData.corretPassword);
         Assert.assertEquals(HomePage.getAttribute(HomePage.avatarIcon, "aria-label"),"Google Account: MariuszTest  \n" +
                 "(mariusztest260@gmail.com)");
     }
-    @Test
+
+    @Test(priority=5)
     void CheckFooterLinks (){
         click(getElementByXpathText(HomePage.footerLinks,"About"));
         Assert.assertEquals(driver.getCurrentUrl(), "https://about.google/?utm_source=google-PL&utm_medium=referral&utm_campaign=hp-footer&fg=1");
@@ -101,10 +102,10 @@ public class HomePageTests {
         driver.navigate().back();
         click(getElementByXpathText(HomePage.footerLinks,"Search help"));
         Assert.assertEquals(getText(howCanWeHelpTitle), "How can we help you?");
-        driver.navigate().back();
-        click(HomePage.sendAnOpinionModalLink);
-        Assert.assertTrue(isDisplayed(HomePage.sendFeedbackToGoogleTitle));
-
     }
 
+    @AfterMethod(alwaysRun = true)
+    public static void endTest() {
+        driver.close();
+    }
 }

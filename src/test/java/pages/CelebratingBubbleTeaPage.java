@@ -1,9 +1,6 @@
 package pages;
-
+import static tests.HomePageTests.driver;
 import org.openqa.selenium.By;
-
-import static pages.BasePage.click;
-import static pages.BasePage.scrollToElement;
 
 public class CelebratingBubbleTeaPage extends BasePage {
     public static By mainTitle = By.cssSelector("h1.title");
@@ -14,16 +11,27 @@ public class CelebratingBubbleTeaPage extends BasePage {
     public static By readMorModalCloseButton = By.xpath("//div[@class='glue-page modal-content']//button[@id='modal-close-btn']");
     public static By exploreRandomThemeButton = By.cssSelector(".key-themes-cta");
     public static By interactiveGameButton = By.xpath("//a[normalize-space()='interactive game']");
-    public static By beverageButton = By.xpath("//a[normalize-space()='beverage']");
-    public static By doodleDateTitle = By.xpath("//h2[text()='Where this Doodle appeared']");
+    public static By beverageButton = By.xpath("//a[@class='theme-word main-outline' and normalize-space()='beverage']");
     public static By doodleDateButton = By.xpath("//a[@class='theme-word' and text()='Jan 29, 2023']");
-
-
-
-
 
     public static void goToReadMorePage(){
         scrollToElement(aboutBubbleTeaDescription);
         click(readMoreButton);
     }
+
+    public static void goTointeractiveGameLink(){
+        driver.navigate().back();
+        scroll(0, 30);
+        click(CelebratingBubbleTeaPage.interactiveGameButton);
+    }
+
+    public static void goToBeverageLink(){
+        driver.navigate().back();
+        scroll(0, -50);
+        click(CelebratingBubbleTeaPage.beverageButton);
+    }
+
+
+
+
 }

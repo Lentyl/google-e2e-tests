@@ -1,7 +1,5 @@
 package pages;
-
 import org.openqa.selenium.By;
-
 public class SearchResultPage extends BasePage {
-    public static By firstSearchedRecord = By.xpath("(//span[@class='VuuXrf'][normalize-space()='Bociany online'])[1]");
+    public static By storkTitle = By.xpath("//div[@class='PZPZlf ssJ7i B5dxMb']");
 }
