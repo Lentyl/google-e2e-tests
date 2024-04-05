@@ -6,6 +6,8 @@ Git<br>
 Terminal (cmdr)<br>
 Maven<br>
 JAVA 21 <br>
+TestNG<br>
+Selenium WebDriver<br>
 Chrome 123.0.6312.88  (64-bit)<br>
 
 <h3>App description</h3>
