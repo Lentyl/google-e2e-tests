@@ -2,8 +2,6 @@ package pages;
 
 import org.openqa.selenium.By;
 
-import static pages.BasePage.click;
-import static pages.BasePage.scrollToElement;
 
 public class DoodlesPage extends BasePage {
 
@@ -15,7 +13,7 @@ public class DoodlesPage extends BasePage {
     public static void goToCelebrationBubleTeaPage(){
         click(CelebratingBubbleTeaPage.cookiesOKButton);
         click(DoodlesPage.playNowButton);
-        refreshPageIfElementIsNotVisable(celebrationBubbleTeaCardTitle);
+        refreshPageIfElementIsNotVisible(celebrationBubbleTeaCardTitle);
         click(celebrationBubbleTeaCardTitle);
     }
 }

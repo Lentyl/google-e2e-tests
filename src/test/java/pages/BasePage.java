@@ -67,7 +67,7 @@ public class BasePage {
         return By.xpath(name);
     }
 
-    public static void refreshPageIfElementIsNotVisable(By selector) {// Metoda stworzona na potrzeby rekrutacji problemy z poprawnym ładowaniem strony
+    public static void refreshPageIfElementIsNotVisible(By selector) {// Metoda stworzona na potrzeby rekrutacji problemy z poprawnym ładowaniem strony
 
         for (int i = 0; i < 4; i++) {
             try {

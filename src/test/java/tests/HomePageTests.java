@@ -7,7 +7,6 @@ import data.TestData;
 import org.testng.asserts.SoftAssert;
 import pages.*;
 import org.testng.Assert;
-import org.testng.asserts.SoftAssert;
 
 public class HomePageTests {
     public static WebDriver driver;
@@ -22,14 +21,14 @@ public class HomePageTests {
     @Test(priority=1)
     void SearchRecordTest(){
         HomePage.searchInWeb(TestData.searchedPhrase);
-        Assert.assertEquals(getText(SearchResultPage.storkTitle), "Stork");
+        Assert.assertEquals(getText(SearchResultPage.title), "Stork");
     }
 
     @Test(priority=2)
     void FeelingLuckyButtonTest (){
         SoftAssert softAssert = new SoftAssert();
         HomePage.searchInWeb(TestData.searchedPhrase);
-        softAssert.assertEquals(getText(SearchResultPage.storkTitle), "Stork"); // wyświetlane są losowe strony
+        softAssert.assertEquals(getText(SearchResultPage.title), "Stork"); // wyświetlane są losowe strony
         driver.navigate().back();
         click(HomePage.feelingLuckyButton);
         DoodlesPage.goToCelebrationBubleTeaPage();
@@ -37,9 +36,7 @@ public class HomePageTests {
         click(CelebratingBubbleTeaPage.foodAndDrinkButton);
         Assert.assertEquals(driver.getCurrentUrl(), "https://doodles.google/search/?topic_tags=food%20and%20drink");
         Assert.assertEquals(getText(DoodlesPage.filterLabelName), "Food and Drink");
-        driver.navigate().back();
-        click(CelebratingBubbleTeaPage.exploreRandomThemeButton);
-        scroll(0, 30);
+        CelebratingBubbleTeaPage.goToRandomThemeButtonLink();
         Assert.assertTrue(isDisplayed(DoodlesPage.searchDoodlesInput));
         CelebratingBubbleTeaPage.goTointeractiveGameLink();
         Assert.assertEquals(getText(DoodlesPage.filterLabelName), "Interactive Game");

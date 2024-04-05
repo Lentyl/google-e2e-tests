@@ -2,68 +2,68 @@
 <testng-results ignored="0" total="5" passed="5" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-04-04T23:16:29 CEST" name="Default Suite" finished-at="2024-04-04T23:17:50 CEST" duration-ms="80952">
+  <suite started-at="2024-04-05T07:59:05 CEST" name="Default Suite" finished-at="2024-04-05T08:00:28 CEST" duration-ms="83248">
     <groups>
     </groups>
-    <test started-at="2024-04-04T23:16:29 CEST" name="google-e2e-tests" finished-at="2024-04-04T23:17:50 CEST" duration-ms="80952">
+    <test started-at="2024-04-05T07:59:05 CEST" name="google-e2e-tests" finished-at="2024-04-05T08:00:28 CEST" duration-ms="83248">
       <class name="tests.HomePageTests">
-        <test-method is-config="true" signature="testSetup()[pri:0, instance:tests.HomePageTests@5c1a8622]" started-at="2024-04-04T23:16:29 CEST" name="testSetup" finished-at="2024-04-04T23:16:33 CEST" duration-ms="4194" status="PASS">
+        <test-method is-config="true" signature="testSetup()[pri:0, instance:tests.HomePageTests@657c8ad9]" started-at="2024-04-05T07:59:05 CEST" name="testSetup" finished-at="2024-04-05T07:59:10 CEST" duration-ms="4725" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testSetup -->
-        <test-method signature="SearchRecordTest()[pri:1, instance:tests.HomePageTests@5c1a8622]" started-at="2024-04-04T23:16:33 CEST" name="SearchRecordTest" finished-at="2024-04-04T23:16:35 CEST" duration-ms="1962" status="PASS">
+        <test-method signature="SearchRecordTest()[pri:1, instance:tests.HomePageTests@657c8ad9]" started-at="2024-04-05T07:59:10 CEST" name="SearchRecordTest" finished-at="2024-04-05T07:59:13 CEST" duration-ms="2511" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SearchRecordTest -->
-        <test-method is-config="true" signature="endTest()[pri:0, instance:tests.HomePageTests@5c1a8622]" started-at="2024-04-04T23:16:35 CEST" name="endTest" finished-at="2024-04-04T23:16:36 CEST" duration-ms="330" status="PASS">
+        <test-method is-config="true" signature="endTest()[pri:0, instance:tests.HomePageTests@657c8ad9]" started-at="2024-04-05T07:59:13 CEST" name="endTest" finished-at="2024-04-05T07:59:13 CEST" duration-ms="260" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endTest -->
-        <test-method is-config="true" signature="testSetup()[pri:0, instance:tests.HomePageTests@5c1a8622]" started-at="2024-04-04T23:16:36 CEST" name="testSetup" finished-at="2024-04-04T23:16:39 CEST" duration-ms="3082" status="PASS">
+        <test-method is-config="true" signature="testSetup()[pri:0, instance:tests.HomePageTests@657c8ad9]" started-at="2024-04-05T07:59:13 CEST" name="testSetup" finished-at="2024-04-05T07:59:16 CEST" duration-ms="3072" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testSetup -->
-        <test-method signature="FeelingLuckyButtonTest()[pri:2, instance:tests.HomePageTests@5c1a8622]" started-at="2024-04-04T23:16:39 CEST" name="FeelingLuckyButtonTest" finished-at="2024-04-04T23:17:06 CEST" duration-ms="27085" status="PASS">
+        <test-method signature="FeelingLuckyButtonTest()[pri:2, instance:tests.HomePageTests@657c8ad9]" started-at="2024-04-05T07:59:16 CEST" name="FeelingLuckyButtonTest" finished-at="2024-04-05T07:59:42 CEST" duration-ms="26529" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- FeelingLuckyButtonTest -->
-        <test-method is-config="true" signature="endTest()[pri:0, instance:tests.HomePageTests@5c1a8622]" started-at="2024-04-04T23:17:06 CEST" name="endTest" finished-at="2024-04-04T23:17:06 CEST" duration-ms="324" status="PASS">
+        <test-method is-config="true" signature="endTest()[pri:0, instance:tests.HomePageTests@657c8ad9]" started-at="2024-04-05T07:59:42 CEST" name="endTest" finished-at="2024-04-05T07:59:43 CEST" duration-ms="381" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endTest -->
-        <test-method is-config="true" signature="testSetup()[pri:0, instance:tests.HomePageTests@5c1a8622]" started-at="2024-04-04T23:17:06 CEST" name="testSetup" finished-at="2024-04-04T23:17:09 CEST" duration-ms="3036" status="PASS">
+        <test-method is-config="true" signature="testSetup()[pri:0, instance:tests.HomePageTests@657c8ad9]" started-at="2024-04-05T07:59:43 CEST" name="testSetup" finished-at="2024-04-05T07:59:46 CEST" duration-ms="3087" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testSetup -->
-        <test-method signature="LogInWithIncorrectPassword()[pri:3, instance:tests.HomePageTests@5c1a8622]" started-at="2024-04-04T23:17:09 CEST" name="LogInWithIncorrectPassword" finished-at="2024-04-04T23:17:17 CEST" duration-ms="7330" status="PASS">
+        <test-method signature="LogInWithIncorrectPassword()[pri:3, instance:tests.HomePageTests@657c8ad9]" started-at="2024-04-05T07:59:46 CEST" name="LogInWithIncorrectPassword" finished-at="2024-04-05T07:59:52 CEST" duration-ms="6594" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- LogInWithIncorrectPassword -->
-        <test-method is-config="true" signature="endTest()[pri:0, instance:tests.HomePageTests@5c1a8622]" started-at="2024-04-04T23:17:17 CEST" name="endTest" finished-at="2024-04-04T23:17:17 CEST" duration-ms="304" status="PASS">
+        <test-method is-config="true" signature="endTest()[pri:0, instance:tests.HomePageTests@657c8ad9]" started-at="2024-04-05T07:59:52 CEST" name="endTest" finished-at="2024-04-05T07:59:53 CEST" duration-ms="295" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endTest -->
-        <test-method is-config="true" signature="testSetup()[pri:0, instance:tests.HomePageTests@5c1a8622]" started-at="2024-04-04T23:17:17 CEST" name="testSetup" finished-at="2024-04-04T23:17:20 CEST" duration-ms="3141" status="PASS">
+        <test-method is-config="true" signature="testSetup()[pri:0, instance:tests.HomePageTests@657c8ad9]" started-at="2024-04-05T07:59:53 CEST" name="testSetup" finished-at="2024-04-05T07:59:56 CEST" duration-ms="3117" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testSetup -->
-        <test-method signature="LogInWithCorrectCredentials()[pri:4, instance:tests.HomePageTests@5c1a8622]" started-at="2024-04-04T23:17:20 CEST" name="LogInWithCorrectCredentials" finished-at="2024-04-04T23:17:28 CEST" duration-ms="8059" status="PASS">
+        <test-method signature="LogInWithCorrectCredentials()[pri:4, instance:tests.HomePageTests@657c8ad9]" started-at="2024-04-05T07:59:56 CEST" name="LogInWithCorrectCredentials" finished-at="2024-04-05T08:00:06 CEST" duration-ms="10356" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- LogInWithCorrectCredentials -->
-        <test-method is-config="true" signature="endTest()[pri:0, instance:tests.HomePageTests@5c1a8622]" started-at="2024-04-04T23:17:28 CEST" name="endTest" finished-at="2024-04-04T23:17:29 CEST" duration-ms="399" status="PASS">
+        <test-method is-config="true" signature="endTest()[pri:0, instance:tests.HomePageTests@657c8ad9]" started-at="2024-04-05T08:00:06 CEST" name="endTest" finished-at="2024-04-05T08:00:07 CEST" duration-ms="311" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endTest -->
-        <test-method is-config="true" signature="testSetup()[pri:0, instance:tests.HomePageTests@5c1a8622]" started-at="2024-04-04T23:17:29 CEST" name="testSetup" finished-at="2024-04-04T23:17:32 CEST" duration-ms="3132" status="PASS">
+        <test-method is-config="true" signature="testSetup()[pri:0, instance:tests.HomePageTests@657c8ad9]" started-at="2024-04-05T08:00:07 CEST" name="testSetup" finished-at="2024-04-05T08:00:10 CEST" duration-ms="3098" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testSetup -->
-        <test-method signature="CheckFooterLinks()[pri:5, instance:tests.HomePageTests@5c1a8622]" started-at="2024-04-04T23:17:32 CEST" name="CheckFooterLinks" finished-at="2024-04-04T23:17:50 CEST" duration-ms="18122" status="PASS">
+        <test-method signature="CheckFooterLinks()[pri:5, instance:tests.HomePageTests@657c8ad9]" started-at="2024-04-05T08:00:10 CEST" name="CheckFooterLinks" finished-at="2024-04-05T08:00:28 CEST" duration-ms="18642" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- CheckFooterLinks -->
-        <test-method is-config="true" signature="endTest()[pri:0, instance:tests.HomePageTests@5c1a8622]" started-at="2024-04-04T23:17:50 CEST" name="endTest" finished-at="2024-04-04T23:17:50 CEST" duration-ms="365" status="PASS">
+        <test-method is-config="true" signature="endTest()[pri:0, instance:tests.HomePageTests@657c8ad9]" started-at="2024-04-05T08:00:28 CEST" name="endTest" finished-at="2024-04-05T08:00:28 CEST" duration-ms="163" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endTest -->

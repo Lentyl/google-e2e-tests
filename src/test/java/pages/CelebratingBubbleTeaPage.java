@@ -19,6 +19,12 @@ public class CelebratingBubbleTeaPage extends BasePage {
         click(readMoreButton);
     }
 
+    public static void goToRandomThemeButtonLink(){
+        driver.navigate().back();
+        click(CelebratingBubbleTeaPage.exploreRandomThemeButton);
+        scroll(0, 30);
+    }
+
     public static void goTointeractiveGameLink(){
         driver.navigate().back();
         scroll(0, 30);
@@ -30,8 +36,4 @@ public class CelebratingBubbleTeaPage extends BasePage {
         scroll(0, -50);
         click(CelebratingBubbleTeaPage.beverageButton);
     }
-
-
-
-
 }
