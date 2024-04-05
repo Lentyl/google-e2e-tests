@@ -9,7 +9,7 @@ JAVA 21 <br>
 Chrome 123.0.6312.88  (64-bit)<br>
 
 <h3>App description</h3>
-<p>App is hosted: <a href="https://www.google.pl/">farm-market</a></p>
+<p>App is hosted: <a href="https://www.google.pl/">google.pl</a></p>
 
 
 <h3>Steps to run tests:</h3>
